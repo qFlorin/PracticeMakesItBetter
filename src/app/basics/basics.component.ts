@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-basics',
@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
   standalone: true,
 })
 export class BasicsComponent implements OnInit {
+  @Input() count = 0;
   constructor() {}
 
   ngOnInit() {}
+
+  add() {
+    this.count++;
+  }
 }

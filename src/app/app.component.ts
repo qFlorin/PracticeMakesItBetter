@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BasicsComponent } from './basics/basics.component';
 
@@ -11,6 +11,12 @@ import { BasicsComponent } from './basics/basics.component';
 })
 export class AppComponent {
   title = 'Learn man';
-
+  count = 0;
   getTitle() {}
+  incrementCount() {
+    this.count++;
+  }
+  decrementCount() {
+    this.count--;
+  }
 }

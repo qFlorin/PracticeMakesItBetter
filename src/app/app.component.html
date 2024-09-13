@@ -1,4 +1,14 @@
-<div>
-  <app-basics />
+<div class="p-5">
+  <h2 class="text-3xl font-serif font-bold py-5">App component</h2>
+
+  <div class="flex items-center gap-3 mb-3">
+    <button (click)="incrementCount()" class="btn-primary">Increment</button>
+    <button (click)="decrementCount()" class="btn-primary">Decrement</button>
+  </div>
+  <hr />
+  <br />
+  <div>
+    <app-basics [count]="count" />
+  </div>
 </div>
 <router-outlet />
