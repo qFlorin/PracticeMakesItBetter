@@ -1,0 +1,10 @@
+<button class="btn-primary mt-2" (click)="getItems()">
+  Load list of questions
+</button>
+<div class="w-2/3 my-4">
+  @for (item of x(); track $index) {
+
+  <p class="font-serif font-bold p-3 border">- {{ item }}</p>
+
+  }
+</div>

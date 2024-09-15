@@ -4,13 +4,14 @@ export type DocsType = {
     signals: string[];
     communication: string[];
     styling: string[];
+    lifecycle: string[];
   };
   pipes: {
     general: string[];
     asyncPipes: string[];
   };
 };
-
+// https://www.youtube.com/watch?v=2yrV7csMw8w TODO: Check the end of the video for portfolio inspiration
 export const TodoList: DocsType = {
   components: {
     general: [
@@ -25,7 +26,7 @@ export const TodoList: DocsType = {
       'Write a input variable who should be required and only of 2 types, add default value',
       'Specify inputs in @Component decorator, what is for (if you extend a class and get the input from base class), inputs: ..',
       'Add a variable who should change based if input changes, in child',
-      '*****',
+      'Add 2 child components with the same input, if counter is updated from any ching, display it',
       'Emit a simple event who executes a function in parent, clicking a button from child',
       'Pass data from child to parent in emmiter',
       'Add an alias for event emmiter',
@@ -33,21 +34,42 @@ export const TodoList: DocsType = {
       'Subscribe to get the value from output',
       'Learn output from observable',
       'Convert an output to an observable',
-      '*****',
       'Project element in a div, add a h1 and a P, try 2 ng contents and see what happens',
       'Project in h2 ng content with an alias, ngProjectAs and try select="" to select where it goes',
       'Project dynamic expression in a div',
-      '*****',
+      'Add default content, hint: between ng-content tag',
+      'Use attributes instead of classes in ng-content, [myAttribute]',
+      'Use attribute but like slot="myAtribute" and add whole sentence to ng content',
       'Add a style property with host binding',
       'Add a dynamic class property with host binding',
       'Add a onClick event with host binding',
       'What property has bigger specificity with host binding, dynamic vs static',
+      'Write a pipe who transform text to uppercase',
+      'Use a custom pipe (percentage, currency, date)',
+      'What is the difference between pure and impure pipe',
+      'View encapsulation none vs shadow dom vs Emulated',
+      'Write an example with input decorator in component decorator',
+      'What are the lifecycle hooks and what they do',
+      'What is the order for lifecycle hooks',
+      'What afterRender and afterNextRender does',
     ],
-    signals: ['Signals', 'etc'],
-    styling: ['Styling', 'etc'],
+    signals: [],
+    styling: [],
+    lifecycle: [],
   },
   pipes: {
-    general: ['Hallo there', 'etc'],
-    asyncPipes: ['coco', 'test'],
+    general: [],
+    asyncPipes: [],
   },
+};
+export const allElements = Object.values(TodoList).flatMap((category) =>
+  Object.values(category).reduce((acc, arr) => [...acc, ...arr], [])
+);
+
+export const getRandomItems = () => {
+  const shuffledElements = [...allElements].sort(() => Math.random() - 0.5); // Shuffle elements randomly
+  const uniqueRandomIndices = new Set( // Use Set to store unique indices
+    Array.from({ length: Math.min(10, shuffledElements.length) }, (_, i) => i) // Limit to 10 or less if allElements is less than 10
+  );
+  return [...uniqueRandomIndices].map((index) => shuffledElements[index]);
 };
