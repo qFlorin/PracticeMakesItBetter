@@ -1,11 +1,21 @@
 <h2 class="text-3xl font-serif font-bold py-5">Parent component</h2>
 <div class="flex items-center gap-3 mb-3">test parent</div>
 <div>
-  <p>
+  <p id="currency" #elRef>
     Currency pipe:
     {{ 321321 | currency : "CAD" : "symbol" : "4.2-2" }}
   </p>
 </div>
 <hr />
 <br />
-<app-child> </app-child>
+<app-child>
+  <p ngProjectAs="hdr">This is the header</p>
+  <p ngProjectAs="ftr">This is the footer</p>
+</app-child>
+
+<div *ngTemplateOutlet="myComponent"></div>
+<ng-template #myComponent>
+  <app-child></app-child>
+</ng-template>
+
+<ng-container *ngComponentOutlet="sibling"></ng-container>
