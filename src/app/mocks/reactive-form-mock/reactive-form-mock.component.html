@@ -1,4 +1,4 @@
-<form class="w-full max-w-lg mt-5">
+<form class="w-full max-w-2xl mt-5" [formGroup]="form">
   <div class="flex flex-wrap -mx-3 mb-6">
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label
@@ -12,6 +12,7 @@
         id="grid-first-name"
         type="text"
         placeholder="Jane"
+        formControlName="firstName"
       />
       <p class="text-red-500 text-xs italic">Please fill out this field.</p>
     </div>
@@ -27,6 +28,7 @@
         id="grid-last-name"
         type="text"
         placeholder="Doe"
+        formControlName="lastName"
       />
     </div>
   </div>
@@ -43,6 +45,7 @@
         id="grid-password"
         type="password"
         placeholder="*************"
+        formControlName="password"
       />
       <p class="text-xs italic">Make it as long and as crazy as you'd like</p>
     </div>
@@ -60,6 +63,7 @@
         id="grid-city"
         type="text"
         placeholder="Albuquerque"
+        formControlName="city"
       />
     </div>
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -73,6 +77,7 @@
         <select
           class="block appearance-none w-full border border-gray-200 py-3 px-4 pr-8"
           id="grid-state"
+          formControlName="state"
         >
           <option>New Mexico</option>
           <option>Missouri</option>
@@ -105,6 +110,7 @@
         id="grid-zip"
         type="text"
         placeholder="90210"
+        formControlName="zipCode"
       />
     </div>
     <button class="btn-primary mt-2 mx-3">Add second address</button>
@@ -122,9 +128,9 @@
     <input
       id="bordered-radio-1"
       type="radio"
-      value=""
-      name="bordered-radio"
+      value="male"
       class="w-4 h-4 text-blue-600"
+      formControlName="gender"
     />
     <label for="bordered-radio-1" class="w-full py-4 ms-2 text-sm font-medium"
       >Male</label
@@ -132,12 +138,11 @@
   </div>
   <div class="flex items-center ps-4 border">
     <input
-      checked
       id="bordered-radio-2"
       type="radio"
-      value=""
-      name="bordered-radio"
+      value="female"
       class="w-4 h-4 text-blue-600"
+      formControlName="gender"
     />
     <label for="bordered-radio-2" class="w-full py-4 ms-2 text-sm font-medium"
       >Female</label
@@ -156,6 +161,7 @@
       id="grid-hobby"
       type="text"
       placeholder="Sport"
+      formControlName="hobby"
     />
   </div>
   <div class="flex justify-between mt-5">
