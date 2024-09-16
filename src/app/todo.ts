@@ -57,6 +57,8 @@ export const TodoList: DocsType = {
       'Write an example where you work with dom elements and element ref to set focus on a input, and a red color to a specific paragraf',
       'Write an example to load 2 component conditionally and place them at correct div',
       'Difference between change detection strategy, on push, default',
+      'Add a hover element based on a condition with host binding and host listener',
+      'Add on click events inside host',
     ],
     signals: [],
     styling: [],
