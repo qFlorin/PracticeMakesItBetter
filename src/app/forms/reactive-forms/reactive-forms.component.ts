@@ -27,4 +27,15 @@ export class ReactiveFormsComponent implements OnInit {
   submit() {
     console.log(111, 'Form', this.form.value);
   }
+
+  /*
+  - Create basic form
+  - Add a validator for min length and required
+  - Group city, state, zip into address
+  - Add a second address group
+  - Delete a second address group
+  - Add an array of hobbies
+  - Delete hobbies inputs
+  -
+  */
 }
