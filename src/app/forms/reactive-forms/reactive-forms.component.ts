@@ -36,6 +36,9 @@ export class ReactiveFormsComponent implements OnInit {
   - Delete a second address group
   - Add an array of hobbies
   - Delete hobbies inputs
+  - Add an async validator
+  - Hide a field based on a select option
+  - Add a error to another field if something is not corresponding
   -
   */
 }
