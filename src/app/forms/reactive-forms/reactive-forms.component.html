@@ -14,7 +14,10 @@
         placeholder="Jane"
         formControlName="firstName"
       />
+      @if (true) {
+
       <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+      }
     </div>
     <div class="w-full md:w-1/2 px-3">
       <label
@@ -50,7 +53,7 @@
       <p class="text-xs italic">Make it as long and as crazy as you'd like</p>
     </div>
   </div>
-  <div class="flex flex-wrap -mx-3 mb-2">
+  <div class="flex flex-wrap -mx-3 mb-2" formGroupName="address">
     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label
         class="block uppercase tracking-wide text-xs font-bold mb-2"
@@ -150,21 +153,23 @@
   </div>
 
   <div class="w-full mb-6 mt-3">
-    <label
-      class="block uppercase tracking-wide 0 text-xs font-bold mb-2"
-      for="grid-hobby"
-    >
+    <label class="block uppercase tracking-wide 0 text-xs font-bold mb-2">
       Hobby
     </label>
-    <input
-      class="block w-full border border-gray-200 rounded py-3 px-4 mb-3"
-      id="grid-hobby"
-      type="text"
-      placeholder="Sport"
-      formControlName="hobby"
-    />
+    <div class="flex items-center gap-2" formArrayName="hobbies">
+      @for ( item of hobbies.controls; track item; let i = $index) {
+
+      <input
+        class="block w-full border border-gray-200 rounded py-3 px-4 mb-3"
+        type="text"
+        placeholder="Sport"
+        [formControlName]="i"
+      />
+      <button class="text-xl font-bold mb-4" (click)="removeHobby(i)">x</button>
+      }
+    </div>
   </div>
-  <button class="btn-primary">Add hobby</button>
+  <button class="btn-primary" (click)="addHobbies()">Add hobby</button>
   <div class="flex justify-end mt-5">
     <button class="btn-primary" (click)="submit()">Submit Form</button>
   </div>
