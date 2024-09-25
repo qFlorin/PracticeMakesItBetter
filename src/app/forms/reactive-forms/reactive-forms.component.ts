@@ -1,10 +1,11 @@
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
+  NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -14,28 +15,24 @@ import {
   templateUrl: './reactive-forms.component.html',
   styleUrls: ['./reactive-forms.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, NgFor],
+  imports: [ReactiveFormsModule, NgFor, NgClass],
 })
 export class ReactiveFormsComponent implements OnInit {
-  public fb = inject(FormBuilder);
+  public fb = inject(NonNullableFormBuilder);
   public form = this.fb.group({
     firstName: ['', Validators.required],
     lastName: [''],
     password: [''],
-    address: this.fb.group({
-      city: [''],
-      state: [''],
-      zipCode: [''],
-    }),
+    addresses: this.fb.array([
+      this.fb.group({
+        city: [''],
+        state: ['Texas'],
+        zipCode: [''],
+      }),
+    ]),
     gender: ['male'],
     hobbies: this.fb.array([new FormControl('')]),
   });
-  constructor() {
-    /*
-      - this.form.status -> Check if form is valid or not
-      -
-    */
-  }
 
   ngOnInit() {
     this.updateFirstName();
@@ -55,9 +52,7 @@ export class ReactiveFormsComponent implements OnInit {
   updateAddress() {
     this.form.patchValue({
       firstName: 'Nancy',
-      address: {
-        city: 'Cluj',
-      },
+      addresses: [{ city: 'New York', state: 'Texas', zipCode: '10001' }],
     });
   }
   // Get the array of hobbies
@@ -70,23 +65,23 @@ export class ReactiveFormsComponent implements OnInit {
     this.hobbies.push(new FormControl(''));
   }
 
+  // Remove hobby
   removeHobby(index: number) {
     const hobbiesArray = this.form.get('hobbies') as FormArray;
     hobbiesArray.removeAt(index);
   }
 
-  // Create a new address form group
   // Get the array of addresses
   get addresses(): FormArray {
-    return this.form.get('addresses') as unknown as FormArray;
+    return this.form.get('addresses') as FormArray;
   }
 
   // Create a new address form group
   createAddressGroup(): FormGroup {
     return this.fb.group({
       city: ['', Validators.required],
-      state: ['', Validators.required],
-      zip: ['', [Validators.required, Validators.minLength(5)]],
+      state: ['Texas', Validators.required],
+      zipCode: ['', [Validators.required, Validators.minLength(5)]],
     });
   }
 
