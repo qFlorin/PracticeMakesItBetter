@@ -17,9 +17,12 @@
         placeholder="Jane"
         formControlName="firstName"
       />
-      @if (form.get('firstName')?.hasError('required')) {
-      <p class="text-red-500 text-xs italic">Please fill out this field.</p>
-      }
+      <div class="text-xs italic text-red-500">
+        @if(form.get('firstName')?.invalid && (form.get('firstName')?.dirty ||
+        form.get('firstName')?.touched)){
+        @if(form.get('firstName')?.hasError('required')){ Name is required. }
+        @if(form.get('firstName')?.hasError('minlength')){ Min length is... } }
+      </div>
     </div>
     <div class="w-full md:w-1/2 px-3">
       <label
@@ -35,6 +38,9 @@
         placeholder="Doe"
         formControlName="lastName"
       />
+      <p class="text-xs italic text-red-500">
+        {{ getLastNameErrorMessage() }}
+      </p>
     </div>
   </div>
   <div class="flex flex-wrap -mx-3 mb-6">
@@ -113,13 +119,14 @@
           Zip
         </label>
         <input
-          class="appearance-none block w-full border border-gray-200 rounded py-3 px-4"
+          class="appearance-none block w-full border rounded py-3 px-4"
           id="grid-zip"
           type="text"
           placeholder="90210"
           formControlName="zipCode"
         />
       </div>
+
       <button class="btn-primary mt-2 mx-3" (click)="removeAddress(i)">
         Delete Address
       </button>
