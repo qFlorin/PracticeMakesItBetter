@@ -127,14 +127,14 @@ export class ReactiveFormsComponent implements OnInit {
   }
 
   /*
-  - Create basic form
-  - Add a validator for min length and required
-  - Group city, state, zip into address
-  - Add a second address group
-  - Delete a second address group
-  - Add an array of hobbies
-  - Delete hobbies inputs
-  - Add an async validator
+  - Create basic form ( Done)
+  - Add a validator for min length and required ( Done)
+  - Group city, state, zip into address group ( Done)
+  - Add a second address group ( Done)
+  - Delete a second address group ( Done)
+  - Add an array of hobbies ( Done)
+  - Delete hobbies inputs ( Done)
+  - Add an async validator ( Done)
   - Hide a field based on a select option
   - Add a error to another field if something is not corresponding
   - Disable a field based on other field value

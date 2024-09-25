@@ -1,0 +1,15 @@
+@if (postsData$ | async; as posts) { @for (post of posts; track $index) {
+<div class="card-body">
+  <h5 class="card-title">{{ post.title }}</h5>
+  <p class="card-text">{{ post.body }}</p>
+</div>
+} @empty {
+<p>No posts found</p>
+} } @if (isError()) {
+<p>There was an error fetching the posts</p>
+} @if (isLoading()) {
+<p>Loading...</p>
+}
+
+{{ isError() }}
+{{ isLoading() }}

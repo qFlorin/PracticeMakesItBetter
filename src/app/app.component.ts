@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { ParentComponent } from './component-basics/parent/parent.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.component';
+import { HttpClientComponent } from './http/http-client/http-client.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.co
     ParentComponent,
     QuestionsComponent,
     ReactiveFormsComponent,
+    HttpClientComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
