@@ -4,6 +4,7 @@ import { ParentComponent } from './component-basics/parent/parent.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.component';
 import { HttpClientComponent } from './http/http-client/http-client.component';
+import { TableComponent } from './table/table.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { HttpClientComponent } from './http/http-client/http-client.component';
     QuestionsComponent,
     ReactiveFormsComponent,
     HttpClientComponent,
+    TableComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

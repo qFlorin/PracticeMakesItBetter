@@ -1,0 +1,53 @@
+<style>
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table-header {
+    background-color: #f2f2f2;
+  }
+
+  .table-row {
+    display: flex;
+  }
+
+  .table-cell {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .table-cell:hover {
+    background-color: #ddd;
+  }
+
+  .table-body .table-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+</style>
+
+<div class="custom-table">
+  <div class="table-header">
+    <div class="table-row">
+      <div class="table-cell" onclick="sortTable(0)">Column 1</div>
+      <div class="table-cell" onclick="sortTable(1)">Column 2</div>
+      <div class="table-cell" onclick="sortTable(2)">Column 3</div>
+    </div>
+  </div>
+  <div class="table-body">
+    <div class="table-row">
+      <div class="table-cell">Row 1, Cell 1</div>
+      <div class="table-cell">Row 1, Cell 2</div>
+      <div class="table-cell">Row 1, Cell 3</div>
+    </div>
+    <div class="table-row">
+      <div class="table-cell">Row 2, Cell 1</div>
+      <div class="table-cell">Row 2, Cell 2</div>
+      <div class="table-cell">Row 2, Cell 3</div>
+    </div>
+    <!-- Add more rows as needed -->
+  </div>
+</div>
