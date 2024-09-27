@@ -1,22 +1,16 @@
-<div class="custom-table">
+<div class="table">
   <div class="table-header">
-    <div class="table-row">
-      <div class="table-cell">Column 1</div>
-      <div class="table-cell">Column 2</div>
-      <div class="table-cell">Column 3</div>
-    </div>
+    <div class="table-cell">ID</div>
+    <div class="table-cell">Name</div>
+    <div class="table-cell">Age</div>
+    <div class="table-cell">Email</div>
   </div>
   <div class="table-body">
-    <div class="table-row">
-      <div class="table-cell">Row 1, Cell 1</div>
-      <div class="table-cell">Row 1, Cell 2</div>
-      <div class="table-cell">Row 1, Cell 3</div>
+    <div class="table-row" *ngFor="let row of getTableData()">
+      <div class="table-cell">{{ row["ID"] }}</div>
+      <div class="table-cell">{{ row["Name"] }}</div>
+      <div class="table-cell">{{ row["Age"] }}</div>
+      <div class="table-cell">{{ row["Email"] }}</div>
     </div>
-    <div class="table-row">
-      <div class="table-cell">Row 2, Cell 1</div>
-      <div class="table-cell">Row 2, Cell 2</div>
-      <div class="table-cell">Row 2, Cell 3</div>
-    </div>
-    <!-- Add more rows as needed -->
   </div>
 </div>
