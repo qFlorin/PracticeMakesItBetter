@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { ParentComponent } from './component-basics/parent/parent.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.component';
@@ -16,6 +16,7 @@ import { TableComponent } from './table/table.component';
     ReactiveFormsComponent,
     HttpClientComponent,
     TableComponent,
+    RouterLink,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
