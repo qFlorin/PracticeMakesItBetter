@@ -18,11 +18,19 @@ export class OrderDetailsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.selectedOrderId = this.activatedRoute.snapshot.paramMap.get('orderId');
-    this.selectedOrder = this.ordersService.orders.find(
-      (order) => order.orderId === this.selectedOrderId
-    );
-    console.log(this.selectedOrderId);
+    // TODO: 'Get the selected order details if param is not changing';
+    // this.selectedOrderId = this.activatedRoute.snapshot.paramMap.get('orderId');
+    // this.selectedOrder = this.ordersService.orders.find(
+    //   (order) => order.orderId === this.selectedOrderId
+    // );
+
+    //TODO: 'Get the selected order details if param is changing';
+    this.activatedRoute.paramMap.subscribe((params) => {
+      this.selectedOrderId = params.get('orderId');
+      this.selectedOrder = this.ordersService.orders.find(
+        (order) => order.orderId === this.selectedOrderId
+      );
+    });
   }
 
   setClassForStatus(status: string): string {
