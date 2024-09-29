@@ -9,18 +9,20 @@ import { OrderDetailsComponent } from './routing/orders/order-details/order-deta
 import { OrdersComponent } from './routing/orders/orders.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent, redirectTo: '' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   {
     path: 'orders',
-    component: OrdersComponent,
-    children: [{ path: ':orderId', component: OrderDetailsComponent }],
+    children: [
+      { path: '', component: OrdersComponent },
+      { path: 'order-details/:orderId', component: OrderDetailsComponent },
+    ],
   },
   {
     path: 'team',
-    component: StudentsComponent,
     children: [
+      { path: '', component: TeamComponent },
       { path: 'students', component: StudentsComponent },
       { path: 'teachers', component: TeachersComponent },
     ],
