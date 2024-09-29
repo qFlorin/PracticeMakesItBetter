@@ -24,4 +24,7 @@ export class NotFoundComponent implements OnInit {
     // this.router.navigate(['team', 'students']);
     this.router.navigateByUrl('/team/students');
   }
+
+  // DOCS:
+  // For a child route to work needs to be in parent component, example: Students and Teacher needs to be in TeamComponent because that is the component that load them
 }

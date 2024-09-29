@@ -2,13 +2,13 @@ import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-orders',
+  templateUrl: './orders.component.html',
+  styleUrls: ['./orders.component.scss'],
   standalone: true,
   imports: [NgClass],
 })
-export class DashboardComponent implements OnInit {
+export class OrdersComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}

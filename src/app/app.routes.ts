@@ -1,20 +1,25 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './routing/home/home.component';
 import { AboutComponent } from './routing/about/about.component';
-import { DashboardComponent } from './routing/dashboard/dashboard.component';
 import { NotFoundComponent } from './routing/404-not-found/404-not-found.component';
 import { TeamComponent } from './routing/team/team.component';
-import { StudentsComponent } from './routing/dashboard/students/students.component';
-import { TeachersComponent } from './routing/dashboard/teachers/teachers.component';
+import { StudentsComponent } from './routing/team/students/students.component';
+import { TeachersComponent } from './routing/team/teachers/teachers.component';
+import { OrderDetailsComponent } from './routing/orders/order-details/order-details.component';
+import { OrdersComponent } from './routing/orders/orders.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent, redirectTo: '' },
   { path: 'about', component: AboutComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'orders',
+    component: OrdersComponent,
+    children: [{ path: ':orderId', component: OrderDetailsComponent }],
+  },
   {
     path: 'team',
-    component: TeamComponent,
+    component: StudentsComponent,
     children: [
       { path: 'students', component: StudentsComponent },
       { path: 'teachers', component: TeachersComponent },
