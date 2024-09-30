@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { OrdersService } from './orders.service';
+import { OrdersService } from '../services/orders.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -23,13 +23,21 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit() {
     // Set initial query param when the page loads
+    const initialOrderType =
+      this.activatedRoute.snapshot.queryParamMap.get('orderType') || 'all';
     this.router.navigate([], {
-      queryParams: { orderType: 'all' },
+      queryParams: { orderType: initialOrderType },
       queryParamsHandling: 'merge',
     });
 
+    // Update the form value when the query param changes
+    this.ordersForm.patchValue(
+      { orderType: initialOrderType },
+      { emitEvent: false }
+    );
+
     this.ordersForm.get('orderType')?.valueChanges.subscribe((value) => {
-      console.log(value);
+      console.log('Value changes', value);
       this.router.navigate([], {
         queryParams: { orderType: value },
         queryParamsHandling: 'merge',
@@ -38,7 +46,7 @@ export class OrdersComponent implements OnInit {
 
     this.activatedRoute.queryParamMap.subscribe((params) => {
       const orderType = params.get('orderType');
-      console.log(orderType);
+      console.log('Order type', orderType);
 
       if (orderType === 'confirmed') {
         this.orders = this.ordersService.orders.filter(
@@ -59,7 +67,7 @@ export class OrdersComponent implements OnInit {
       } else if (orderType === 'all') {
         this.orders = this.ordersService.orders;
       } else {
-        this.orders = [];
+        this.orders = this.ordersService.orders;
       }
     });
   }

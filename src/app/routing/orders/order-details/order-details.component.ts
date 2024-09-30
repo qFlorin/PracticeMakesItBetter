@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OrdersService } from './../orders.service';
+import { OrdersService } from '../../services/orders.service';
 import { NgClass } from '@angular/common';
 
 @Component({
