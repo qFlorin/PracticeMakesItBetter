@@ -1,16 +1,7 @@
-import {
-  afterNextRender,
-  afterRender,
-  AfterRenderOptions,
-  AfterViewInit,
-  Component,
-  ElementRef,
-  inject,
-} from '@angular/core';
+import { afterNextRender, Component, ElementRef, inject } from '@angular/core';
 import { ChildComponent } from '../child/child.component';
 import {
   CurrencyPipe,
-  JsonPipe,
   NgComponentOutlet,
   NgTemplateOutlet,
 } from '@angular/common';
@@ -20,15 +11,7 @@ import { SiblingComponent } from '../sibling/sibling.component';
   selector: 'app-parent',
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.scss'],
-  standalone: true,
-  imports: [
-    ChildComponent,
-    CurrencyPipe,
-    JsonPipe,
-    NgComponentOutlet,
-    SiblingComponent,
-    NgTemplateOutlet,
-  ],
+  imports: [ChildComponent, CurrencyPipe, NgComponentOutlet, NgTemplateOutlet],
 })
 export class ParentComponent {
   sibling = SiblingComponent;

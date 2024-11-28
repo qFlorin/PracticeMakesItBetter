@@ -5,11 +5,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss'],
-  standalone: true,
-  imports: [NgClass, ReactiveFormsModule],
+    selector: 'app-orders',
+    templateUrl: './orders.component.html',
+    styleUrls: ['./orders.component.scss'],
+    imports: [NgClass, ReactiveFormsModule]
 })
 export class OrdersComponent implements OnInit {
   private readonly ordersService = inject(OrdersService);

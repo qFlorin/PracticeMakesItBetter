@@ -1,14 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { PostsService, Posts } from './posts.service';
 import { catchError, finalize, Observable, of, tap } from 'rxjs';
-import { AsyncPipe, JsonPipe, NgFor } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-http-client',
   templateUrl: './http-client.component.html',
   styleUrls: ['./http-client.component.scss'],
-  standalone: true,
-  imports: [AsyncPipe, JsonPipe, NgFor],
+  imports: [AsyncPipe],
 })
 export class HttpClientComponent {
   postsService = inject(PostsService);

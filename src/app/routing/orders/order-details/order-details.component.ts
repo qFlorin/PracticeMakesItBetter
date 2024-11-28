@@ -4,11 +4,10 @@ import { OrdersService } from '../../services/orders.service';
 import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-order-details',
-  templateUrl: './order-details.component.html',
-  styleUrls: ['./order-details.component.scss'],
-  standalone: true,
-  imports: [NgClass],
+    selector: 'app-order-details',
+    templateUrl: './order-details.component.html',
+    styleUrls: ['./order-details.component.scss'],
+    imports: [NgClass]
 })
 export class OrderDetailsComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);

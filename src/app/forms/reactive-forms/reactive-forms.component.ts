@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import {
   FormArray,
@@ -15,8 +15,7 @@ import { specificNamesValidator, zipCodeValidatorFn } from './form-validators';
   selector: 'app-reactive-forms',
   templateUrl: './reactive-forms.component.html',
   styleUrls: ['./reactive-forms.component.css'],
-  standalone: true,
-  imports: [ReactiveFormsModule, NgFor, NgClass],
+  imports: [ReactiveFormsModule, NgClass],
 })
 export class ReactiveFormsComponent implements OnInit {
   public fb = inject(NonNullableFormBuilder);

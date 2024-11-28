@@ -1,16 +1,13 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 
-import { AgGridAngular } from 'ag-grid-angular';
 import { HttpClient } from '@angular/common/http';
-import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  standalone: true,
-  imports: [NgFor, NgIf, AgGridAngular, InfiniteScrollDirective],
+  imports: [NgFor],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TableComponent implements OnInit {
