@@ -1,32 +1,41 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+
+import { AgGridAngular } from 'ag-grid-angular';
+import { HttpClient } from '@angular/common/http';
+import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, AgGridAngular, InfiniteScrollDirective],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TableComponent implements OnInit {
-  constructor() {}
+  items: any[] = [];
+  page = 1;
+  perPage = 50;
 
-  ngOnInit() {}
+  constructor(private http: HttpClient) {}
 
-  tableColumns: string[] = ['ID', 'Name', 'Age', 'Email'];
-  tableRows: { [key: string]: any }[] = [
-    { ID: 1, Name: 'John Doe', Age: 25, Email: 'john.doe@example.com' },
-    { ID: 2, Name: 'Jane Smith', Age: 30, Email: 'jane.smith@example.com' },
-    { ID: 3, Name: 'Sam Johnson', Age: 22, Email: 'sam.johnson@example.com' },
-  ];
+  ngOnInit(): void {
+    this.fetchItems();
+  }
 
-  getTableData() {
-    return this.tableRows.map((row) => {
-      let rowData: { [key: string]: any } = {};
-      this.tableColumns.forEach((column) => {
-        rowData[column] = row[column];
+  onScroll() {
+    this.page++;
+    this.fetchItems();
+  }
+
+  fetchItems() {
+    this.http
+      .get<any[]>(
+        `https://jsonplaceholder.typicode.com/posts?_page=${this.page}&_limit=${this.perPage}`
+      )
+      .subscribe((data: any[]) => {
+        this.items = this.items.concat(data);
       });
-      return rowData;
-    });
   }
 }
