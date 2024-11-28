@@ -8,14 +8,12 @@ import { TeachersComponent } from './routing/team/teachers/teachers.component';
 import { OrderDetailsComponent } from './routing/orders/order-details/order-details.component';
 import { OrdersComponent } from './routing/orders/orders.component';
 import { LoginComponent } from './routing/login/login.component';
-import { TableComponent } from './table/table.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'table', component: TableComponent },
   {
     path: 'orders',
     children: [
