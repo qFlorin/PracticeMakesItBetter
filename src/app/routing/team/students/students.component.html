@@ -1,43 +1,30 @@
 <section class="bg-white dark:bg-gray-900">
-  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-    <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+    <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
       <h2
         class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"
       >
-        Our Students
+        Students
       </h2>
-      <p
-        class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400"
-      >
+      <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
         Explore the whole collection of open-source web components and elements
         built with the utility classes from Tailwind
       </p>
     </div>
-    <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
+    <div class="grid gap-8 sm:grid-cols-2">
       @for (student of students; track student.id) {
-      <div
-        class="items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer"
-      >
-        <a>
-          <img
-            class="w-full rounded-t-lg"
-            [src]="student.image"
-            [alt]="student.image"
-          />
-        </a>
-        <div class="p-5">
-          <h3
-            class="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
-          >
-            <a href="#">{{ student.name }}</a>
-          </h3>
-          <span class="text-gray-500 dark:text-gray-400">{{
-            student.major
-          }}</span>
-          <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
-            {{ student.description }}
-          </p>
-        </div>
+      <div class="text-center text-gray-500 dark:text-gray-400 cursor-pointer">
+        <img
+          class="mx-auto mb-4 w-36 h-36 rounded-full"
+          [src]="student.image"
+          alt="Bonnie Avatar"
+        />
+        <h3
+          class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          <a>{{ student.name }}</a>
+        </h3>
+        <p>{{ student.position }}</p>
       </div>
       }
     </div>

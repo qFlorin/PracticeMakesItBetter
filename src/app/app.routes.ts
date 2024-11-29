@@ -1,14 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './routing/home/home.component';
-import { AboutComponent } from './routing/about/about.component';
-import { NotFoundComponent } from './routing/404-not-found/404-not-found.component';
-import { TeamComponent } from './routing/team/team.component';
-import { StudentsComponent } from './routing/team/students/students.component';
-import { TeachersComponent } from './routing/team/teachers/teachers.component';
-import { OrderDetailsComponent } from './routing/orders/order-details/order-details.component';
-import { OrdersComponent } from './routing/orders/orders.component';
-import { LoginComponent } from './routing/login/login.component';
-import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -62,6 +52,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'students',
+        loadComponent: () =>
+          import('./routing/team/students/students.component').then(
+            (c) => c.StudentsComponent
+          ),
+      },
+      {
         path: 'teachers',
         loadComponent: () =>
           import('./routing/team/teachers/teachers.component').then(
@@ -83,11 +80,8 @@ export const routes: Routes = [
   TODO: Exercices:
   Add activateRoute with relatedTo option to append a route to current route from .ts
   Add a list of products on the left and clicking on one of them load data on the right
-  Relative vs absolute paths, differece between ./ and / and ../ and when to use each
   Add a route with a parameter and use it to load data
   Use exact true to match only the exact path
-  Active route class for teachers/students
-  Use redirectTo to redirect to another route
   Fix route with params doesn't have active class
   Scrolling activate section, add class to active section
   Use fragments to navigate down and open url with fragment in new tab (add transition) - scrollIntoView(smooth)
@@ -98,4 +92,8 @@ export const routes: Routes = [
   - Difference between router resolver and and get data in component
   - Router events, how to use them
   - Take input from the route and use it in modal
+  - Use multiple outlets
+  - Load data from resolver
+  - Skip location change example
+  Learn:
 */
