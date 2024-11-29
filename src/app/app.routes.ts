@@ -53,7 +53,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./routing/team/team.component').then((c) => c.TeamComponent),
     children: [
-      // { path: '', redirectTo: 'students', pathMatch: 'full' }, // Remove this if you want to have team componet instead of student as default
+      { path: '', redirectTo: 'teachers', pathMatch: 'full' }, // Remove this if you want to have team componet instead of student as default
       {
         path: 'students',
         loadComponent: () =>
