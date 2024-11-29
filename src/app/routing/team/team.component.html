@@ -1,5 +1,12 @@
 <div class="p-7 gap-3 flex">
-  <button class="btn-primary" routerLink="teachers">Teachers</button>
-  <button class="btn-primary" routerLink="students">Students</button>
+  <div class="2/5 max-w-[450px]">
+    <div class="flex items-center justify-center gap-3">
+      <button class="btn-primary" routerLink="teachers">Teachers</button>
+      <button class="btn-primary" routerLink="students">Students</button>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="3/5 mx-auto">test</div>
 </div>
-<router-outlet></router-outlet>

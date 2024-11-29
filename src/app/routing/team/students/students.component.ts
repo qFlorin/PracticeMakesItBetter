@@ -10,17 +10,46 @@ export class StudentsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
   students = [
-    { id: 1, name: 'John Doe', age: 20, major: 'Computer Science' },
-    { id: 2, name: 'Jane Smith', age: 22, major: 'Mathematics' },
-    { id: 3, name: 'Alice Johnson', age: 21, major: 'Physics' },
-    { id: 4, name: 'Bob Brown', age: 23, major: 'Chemistry' },
-    { id: 5, name: 'Charlie Davis', age: 20, major: 'Biology' },
-    { id: 6, name: 'Diana Evans', age: 22, major: 'English' },
-    { id: 7, name: 'Frank Green', age: 21, major: 'History' },
-    { id: 8, name: 'Grace Harris', age: 23, major: 'Philosophy' },
-    { id: 9, name: 'Henry Jackson', age: 20, major: 'Economics' },
-    { id: 10, name: 'Ivy King', age: 22, major: 'Political Science' },
+    {
+      id: 1,
+      name: 'Bonnie Green',
+      age: 30,
+      major: 'CEO & Web Developer',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png',
+      description:
+        'Bonnie drives the technical strategy of the flowbite platform and brand.',
+    },
+    {
+      id: 2,
+      name: 'Jese Leos',
+      age: 32,
+      major: 'CTO',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png',
+      description:
+        'Jese drives the technical strategy of the flowbite platform and brand.',
+    },
+    {
+      id: 3,
+      name: 'Michael Gough',
+      age: 28,
+      major: 'Senior Front-end Developer',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png',
+      description:
+        'Michael drives the technical strategy of the flowbite platform and brand.',
+    },
+    {
+      id: 4,
+      name: 'Lana Byrd',
+      age: 29,
+      major: 'Marketing & Sale',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png',
+      description:
+        'Lana drives the technical strategy of the flowbite platform and brand.',
+    },
   ];
 }

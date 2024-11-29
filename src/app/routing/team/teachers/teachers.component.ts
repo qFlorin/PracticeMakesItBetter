@@ -12,19 +12,61 @@ export class TeachersComponent implements OnInit {
   ngOnInit() {}
 
   teachers = [
-    { id: 1, name: 'John Doe', subject: 'Mathematics' },
-    { id: 2, name: 'Jane Smith', subject: 'English' },
-    { id: 3, name: 'Michael Johnson', subject: 'Science' },
-    { id: 4, name: 'Emily Davis', subject: 'History' },
-    { id: 5, name: 'William Brown', subject: 'Geography' },
-    { id: 6, name: 'Olivia Wilson', subject: 'Physics' },
-    { id: 7, name: 'James Taylor', subject: 'Chemistry' },
-    { id: 8, name: 'Sophia Martinez', subject: 'Biology' },
-    { id: 9, name: 'Benjamin Anderson', subject: 'Physical Education' },
-    { id: 10, name: 'Isabella Thomas', subject: 'Art' },
-    { id: 11, name: 'Lucas Jackson', subject: 'Music' },
-    { id: 12, name: 'Mia White', subject: 'Computer Science' },
-    { id: 13, name: 'Alexander Harris', subject: 'Economics' },
-    { id: 14, name: 'Charlotte Martin', subject: 'Literature' },
+    {
+      id: 1,
+      name: 'Bonnie Green',
+      position: 'CEO/Co-founder',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png',
+    },
+    {
+      id: 2,
+      name: 'Helene Engels',
+      position: 'CTO/Co-founder',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png',
+    },
+    {
+      id: 3,
+      name: 'Jese Leos',
+      position: 'SEO & Marketing',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png',
+    },
+    {
+      id: 4,
+      name: 'Joseph Mcfall',
+      position: 'Sales',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png',
+    },
+    {
+      id: 5,
+      name: 'Lana Byrd',
+      position: 'Web Designer',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png',
+    },
+    {
+      id: 6,
+      name: 'Leslie Livingston',
+      position: 'Graphic Designer',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png',
+    },
+    {
+      id: 7,
+      name: 'Michael Gough',
+      position: 'React Developer',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png',
+    },
+    {
+      id: 8,
+      name: 'Neil Sims',
+      position: 'Vue.js Developer',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png',
+    },
   ];
 }
