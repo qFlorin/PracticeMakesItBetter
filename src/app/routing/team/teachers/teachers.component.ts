@@ -23,13 +23,13 @@ export class TeachersComponent implements OnInit {
     },
     {
       id: 2,
-      name: 'Jese Leos',
+      name: 'Helene Engels',
       age: 32,
       major: 'CTO',
       image:
-        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png',
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png',
       description:
-        'Jese drives the technical strategy of the flowbite platform and brand.',
+        'Helene drives the technical strategy of the flowbite platform and brand.',
     },
     {
       id: 3,
@@ -43,13 +43,53 @@ export class TeachersComponent implements OnInit {
     },
     {
       id: 4,
-      name: 'Lana Byrd',
+      name: 'Joseph Mcfall',
       age: 29,
       major: 'Marketing & Sale',
       image:
-        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png',
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png',
       description:
-        'Lana drives the technical strategy of the flowbite platform and brand.',
+        'Joseph drives the technical strategy of the flowbite platform and brand.',
+    },
+    {
+      id: 5,
+      name: 'William Harris',
+      age: 35,
+      major: 'Data Scientist',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png',
+      description:
+        'William drives the technical strategy of the flowbite platform and brand.',
+    },
+    {
+      id: 6,
+      name: 'Leslie Livingston',
+      age: 27,
+      major: 'UX Designer',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/thomas-lean.png',
+      description:
+        'Leslie drives the technical strategy of the flowbite platform and brand.',
+    },
+    {
+      id: 7,
+      name: 'James Smith',
+      age: 31,
+      major: 'Backend Developer',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png',
+      description:
+        'James drives the technical strategy of the flowbite platform and brand.',
+    },
+    {
+      id: 8,
+      name: 'Neil Sims',
+      age: 26,
+      major: 'Project Manager',
+      image:
+        'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/neil-sims.png',
+      description:
+        'Neil drives the technical strategy of the flowbite platform and brand.',
     },
   ];
 }

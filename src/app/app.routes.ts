@@ -50,14 +50,17 @@ export const routes: Routes = [
           import('./routing/team/students/students.component').then(
             (c) => c.StudentsComponent
           ),
+        children: [
+          {
+            path: ':id',
+            loadComponent: () =>
+              import(
+                './routing/team/students/student-details/student-details.component'
+              ).then((c) => c.StudentDetailsComponent),
+          },
+        ],
       },
-      {
-        path: 'students',
-        loadComponent: () =>
-          import('./routing/team/students/students.component').then(
-            (c) => c.StudentsComponent
-          ),
-      },
+
       {
         path: 'teachers',
         loadComponent: () =>

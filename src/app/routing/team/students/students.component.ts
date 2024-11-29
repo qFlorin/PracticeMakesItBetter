@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
   styleUrls: ['./students.component.scss'],
   standalone: true,
+  imports: [RouterLink, RouterOutlet],
 })
 export class StudentsComponent implements OnInit {
   constructor() {}
