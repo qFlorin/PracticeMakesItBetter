@@ -99,13 +99,12 @@ export const routes: Routes = [
 /*
   TODO: Exercices:
   - Add a list of products on the left and clicking on one of them load data on the right
-  - Add a route with a parameter and use it to load data
+  - Add a route with a parameter and use it to load data (Async from service)
   - Fix route with params doesn't have active class
   - Scrolling activate section, add class to active section
   - Use fragments to navigate down and open url with fragment in new tab (add transition) - scrollIntoView(smooth)
   - Read the value of fragment, params, queryParams, data, and url and console log it
   - Filter a list of items based on params
-  - Open a modal with a route where in modal show the data of the item (How to open modal automatically if I access it via url)
   - How encoding url works %3d and others
   - Difference between router resolver and and get data in component
   - Router events, how to use them

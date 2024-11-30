@@ -19,7 +19,6 @@ export class TeacherDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Teacher ID:', this.teacherId());
     const dialog = document.querySelector<HTMLDialogElement>('#teacherDialog');
     dialog?.showModal();
   }

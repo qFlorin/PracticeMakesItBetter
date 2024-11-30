@@ -18,15 +18,12 @@ export class HttpClientComponent {
 
   getPostData(): Observable<Posts[]> {
     this.isLoading.set(true);
-    console.log('Loading started');
     return this.postsService.getFakePosts().pipe(
       catchError((error) => {
-        console.log('Error occurred');
         this.isError.set(true);
         return of([]);
       }),
       finalize(() => {
-        console.log('Loading finished');
         this.isLoading.set(false);
       })
     );
