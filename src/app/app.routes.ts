@@ -99,7 +99,6 @@ export const routes: Routes = [
 /*
   TODO: Exercices:
   - Add a list of products on the left and clicking on one of them load data on the right
-  - Add a route with a parameter and use it to load data (Async from service)
   - Fix route with params doesn't have active class
   - Scrolling activate section, add class to active section
   - Use fragments to navigate down and open url with fragment in new tab (add transition) - scrollIntoView(smooth)
