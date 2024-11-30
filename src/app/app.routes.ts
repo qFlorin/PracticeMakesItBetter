@@ -39,6 +39,13 @@ export const routes: Routes = [
     ],
   },
   {
+    path: 'calendar',
+    loadComponent: () =>
+      import('./routing/calendar/calendar.component').then(
+        (c) => c.CalendarComponent
+      ),
+  },
+  {
     path: 'team',
     loadComponent: () =>
       import('./routing/team/team.component').then((c) => c.TeamComponent),
@@ -84,7 +91,6 @@ export const routes: Routes = [
   Add activateRoute with relatedTo option to append a route to current route from .ts
   Add a list of products on the left and clicking on one of them load data on the right
   Add a route with a parameter and use it to load data
-  Use exact true to match only the exact path
   Fix route with params doesn't have active class
   Scrolling activate section, add class to active section
   Use fragments to navigate down and open url with fragment in new tab (add transition) - scrollIntoView(smooth)
@@ -98,5 +104,7 @@ export const routes: Routes = [
   - Use multiple outlets
   - Load data from resolver
   - Skip location change example
+
   Learn:
+ - Exact true to match only the exact path
 */
