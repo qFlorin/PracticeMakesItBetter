@@ -1,18 +1,15 @@
-import { Component, OnInit, output } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { TeacherDetailsComponent } from './teacher-details/teacher-details.component';
+import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-teachers',
   templateUrl: './teachers.component.html',
   styleUrls: ['./teachers.component.scss'],
   standalone: true,
-  imports: [RouterLink, TeacherDetailsComponent],
+  imports: [RouterLink, RouterOutlet],
 })
-export class TeachersComponent implements OnInit {
+export class TeachersComponent {
   constructor() {}
-
-  ngOnInit() {}
   teachers = [
     {
       id: 1,
@@ -95,19 +92,4 @@ export class TeachersComponent implements OnInit {
         'Neil drives the technical strategy of the flowbite platform and brand.',
     },
   ];
-
-  openDialog(teacherId: number) {
-    const dialog: HTMLDialogElement | null =
-      document.querySelector('#teacherDialog');
-    if (dialog) {
-      dialog.showModal();
-    }
-  }
-  closeDialog() {
-    const dialog: HTMLDialogElement | null =
-      document.querySelector('#teacherDialog');
-    if (dialog) {
-      dialog.close();
-    }
-  }
 }

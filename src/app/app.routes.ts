@@ -21,6 +21,7 @@ export const routes: Routes = [
   },
   {
     path: 'orders',
+
     children: [
       {
         path: '',
@@ -49,8 +50,9 @@ export const routes: Routes = [
     path: 'team',
     loadComponent: () =>
       import('./routing/team/team.component').then((c) => c.TeamComponent),
+
     children: [
-      { path: '', redirectTo: 'teachers', pathMatch: 'full' }, // Remove this if you want to have team componet instead of student as default
+      { path: '', redirectTo: 'teachers', pathMatch: 'full' },
       {
         path: 'students',
         loadComponent: () =>
@@ -67,7 +69,6 @@ export const routes: Routes = [
           },
         ],
       },
-
       {
         path: 'teachers',
         loadComponent: () =>
@@ -76,7 +77,7 @@ export const routes: Routes = [
           ),
         children: [
           {
-            path: ':id',
+            path: ':teacherId',
             loadComponent: () =>
               import(
                 './routing/team/teachers/teacher-details/teacher-details.component'
@@ -97,7 +98,6 @@ export const routes: Routes = [
 
 /*
   TODO: Exercices:
-  - Add activateRoute with relatedTo option to append a route to current route from .ts
   - Add a list of products on the left and clicking on one of them load data on the right
   - Add a route with a parameter and use it to load data
   - Fix route with params doesn't have active class
@@ -114,6 +114,7 @@ export const routes: Routes = [
   - Load data from resolver
   - Skip location change example
   - Add a dropdown menu with routes for big sections
+  - Open modal at redirects
 
   Learn:
  - Exact true to match only the exact path

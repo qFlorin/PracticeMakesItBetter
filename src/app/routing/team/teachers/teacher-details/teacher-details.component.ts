@@ -1,4 +1,5 @@
-import { Component, OnInit, output } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-teacher-details',
@@ -6,12 +7,20 @@ import { Component, OnInit, output } from '@angular/core';
   styleUrls: ['./teacher-details.component.scss'],
 })
 export class TeacherDetailsComponent implements OnInit {
-  closeDialog = output();
-  constructor() {}
+  router = inject(Router);
+  activatedRoute = inject(ActivatedRoute);
 
-  ngOnInit() {}
+  teacherId = input('');
 
   close() {
-    this.closeDialog.emit();
+    const dialog = document.querySelector<HTMLDialogElement>('#teacherDialog');
+    dialog?.close();
+    this.router.navigate(['../'], { relativeTo: this.activatedRoute });
+  }
+
+  ngOnInit(): void {
+    console.log('Teacher ID:', this.teacherId());
+    const dialog = document.querySelector<HTMLDialogElement>('#teacherDialog');
+    dialog?.showModal();
   }
 }
