@@ -17,6 +17,8 @@
       @for (teacher of teachers; track teacher.id) {
       <div
         class="items-center bg-gray-50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer"
+        [routerLink]="['./', teacher.id]"
+        (click)="openDialog(teacher.id)"
       >
         <a>
           <img
@@ -43,3 +45,10 @@
     </div>
   </div>
 </section>
+
+<dialog
+  id="teacherDialog"
+  class="rounded-lg shadow-lg p-6 bg-white dark:bg-gray-800"
+>
+  <app-teacher-details (closeDialog)="closeDialog()" />
+</dialog>

@@ -74,6 +74,15 @@ export const routes: Routes = [
           import('./routing/team/teachers/teachers.component').then(
             (c) => c.TeachersComponent
           ),
+        children: [
+          {
+            path: ':id',
+            loadComponent: () =>
+              import(
+                './routing/team/teachers/teacher-details/teacher-details.component'
+              ).then((c) => c.TeacherDetailsComponent),
+          },
+        ],
       },
     ],
   },
@@ -88,12 +97,12 @@ export const routes: Routes = [
 
 /*
   TODO: Exercices:
-  Add activateRoute with relatedTo option to append a route to current route from .ts
-  Add a list of products on the left and clicking on one of them load data on the right
-  Add a route with a parameter and use it to load data
-  Fix route with params doesn't have active class
-  Scrolling activate section, add class to active section
-  Use fragments to navigate down and open url with fragment in new tab (add transition) - scrollIntoView(smooth)
+  - Add activateRoute with relatedTo option to append a route to current route from .ts
+  - Add a list of products on the left and clicking on one of them load data on the right
+  - Add a route with a parameter and use it to load data
+  - Fix route with params doesn't have active class
+  - Scrolling activate section, add class to active section
+  - Use fragments to navigate down and open url with fragment in new tab (add transition) - scrollIntoView(smooth)
   - Read the value of fragment, params, queryParams, data, and url and console log it
   - Filter a list of items based on params
   - Open a modal with a route where in modal show the data of the item (How to open modal automatically if I access it via url)
@@ -104,6 +113,7 @@ export const routes: Routes = [
   - Use multiple outlets
   - Load data from resolver
   - Skip location change example
+  - Add a dropdown menu with routes for big sections
 
   Learn:
  - Exact true to match only the exact path
