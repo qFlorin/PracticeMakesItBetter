@@ -6,9 +6,14 @@
   <div class="sm:flex sm:items-start">
     <img src="{{ tutor?.image }}" alt="avatar" class="size-10 rounded-full" />
     <div class="text-center sm:ml-4 sm:mt-0 sm:text-left">
-      <h3 class="text-base font-semibold text-gray-900" id="modal-title">
-        Delete teacher <span class="text-gray-500">{{ tutor?.name }} </span>
-        <span class="font-normal text-gray-500">({{ tutor?.major }})</span>
+      <h3 class="text-gray-500" id="modal-title">
+        Delete teacher
+        <span class="text-base font-semibold text-gray-900"
+          >{{ tutor?.name }}
+        </span>
+        <span class="text-base font-semibold text-gray-900"
+          >({{ tutor?.major }})</span
+        >
       </h3>
       <div class="mt-2">
         <p class="text-sm text-gray-500">

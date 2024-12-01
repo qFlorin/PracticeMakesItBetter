@@ -61,7 +61,7 @@ export const routes: Routes = [
           ),
         children: [
           {
-            path: ':id',
+            path: ':studentId',
             loadComponent: () =>
               import(
                 './routing/team/students/student-details/student-details.component'
@@ -99,17 +99,21 @@ export const routes: Routes = [
 /*
   TODO: Exercices:
   - Add a list of products on the left and clicking on one of them load data on the right
-  - Fix route with params doesn't have active class
+  - Load one initially on the right
+
+  FRAGMENTS:
   - Scrolling activate section, add class to active section
   - Use fragments to navigate down and open url with fragment in new tab (add transition) - scrollIntoView(smooth)
   - Read the value of fragment, params, queryParams, data, and url and console log it
+
+  ORDERS:
   - Filter a list of items based on params
   - How encoding url works %3d and others
-  - Difference between router resolver and and get data in component
+  - Fix route with params doesn't have active class
+
+  - Difference between router resolver and and get data in component, Load data from resolver
   - Router events, how to use them
-  - Take input from the route and use it in modal
   - Use multiple outlets
-  - Load data from resolver
   - Skip location change example
   - Add a dropdown menu with routes for big sections
   - Open modal at redirects

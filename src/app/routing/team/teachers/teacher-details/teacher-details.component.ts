@@ -17,7 +17,7 @@ export class TeacherDetailsComponent implements OnInit {
   dialog = document.querySelector<HTMLDialogElement>('#teacherDialog');
   teacherId = input('');
   teamService = inject(TeamService);
-  teacher: Observable<Teacher> | null = null;
+  teacher: Observable<Teacher | undefined> | null = null;
   close() {
     this.dialog?.close();
     this.router.navigate(['../'], { relativeTo: this.activatedRoute });

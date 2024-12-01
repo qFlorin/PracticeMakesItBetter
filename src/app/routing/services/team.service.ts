@@ -22,13 +22,6 @@ export interface Student {
 })
 export class TeamService {
   constructor() {}
-  getTeacherById(id: number): Observable<any> {
-    const teacher = this.teachers.find((teacher) => teacher.id === id);
-    return of(teacher).pipe(delay(1000));
-  }
-  getTeachers(): Observable<any[]> {
-    return of(this.teachers).pipe(delay(0));
-  }
 
   teachers: Teacher[] = [
     {
@@ -187,4 +180,22 @@ export class TeamService {
         'Neil is an expert in Vue.js and has a passion for front-end development.',
     },
   ];
+
+  getTeacherById(id: number): Observable<Teacher | undefined> {
+    const teacher = this.teachers.find((teacher) => teacher.id === id);
+    return of(teacher).pipe(delay(400));
+  }
+
+  getTeachers(): Observable<any[]> {
+    return of(this.teachers).pipe(delay(0));
+  }
+
+  getStudentById(id: number): Observable<Student | undefined> {
+    const student = this.students.find((student) => student.id === id);
+    return of(student).pipe(delay(100));
+  }
+
+  getStudents(): Observable<Student[]> {
+    return of(this.students).pipe(delay(0));
+  }
 }
