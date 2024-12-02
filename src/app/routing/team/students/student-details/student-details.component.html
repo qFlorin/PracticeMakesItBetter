@@ -1,7 +1,4 @@
-@let student = currentStudent | async;
-{{ student | json }}
-
-@if (student) {
+@let student = currentStudent | async; @if (student && !isLoading()) {
 <section class="bg-white dark:bg-gray-900">
   <div
     class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-1"
@@ -49,7 +46,7 @@
     </div>
   </div>
 </section>
-} @else {
+} @if(isLoading()) {
 
 <h1 class="text-xl font-extrabold leading-none mt-24 mb-5">
   Loading student...

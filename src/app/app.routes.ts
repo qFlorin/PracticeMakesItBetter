@@ -98,19 +98,18 @@ export const routes: Routes = [
 
 /*
   TODO: Exercices:
-  - Add a list of products on the left and clicking on one of them load data on the right
-  - Load one initially on the right
-
   FRAGMENTS:
   - Scrolling activate section, add class to active section
   - Use fragments to navigate down and open url with fragment in new tab (add transition) - scrollIntoView(smooth)
   - Read the value of fragment, params, queryParams, data, and url and console log it
+  - Do something if query param, data, fragment is changing
 
   ORDERS:
   - Filter a list of items based on params
   - How encoding url works %3d and others
   - Fix route with params doesn't have active class
 
+  EXTRA:
   - Difference between router resolver and and get data in component, Load data from resolver
   - Router events, how to use them
   - Use multiple outlets

@@ -87,6 +87,7 @@
               routerLink="/orders"
               routerLinkActive="active"
               [queryParams]="{ orderType: 'all' }"
+              [routerLinkActiveOptions]="{ exact: true }"
               >Orders</a
             >
           </li>

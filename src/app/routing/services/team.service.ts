@@ -192,7 +192,7 @@ export class TeamService {
 
   getStudentById(id: number): Observable<Student | undefined> {
     const student = this.students.find((student) => student.id === id);
-    return of(student).pipe(delay(100));
+    return of(student).pipe(delay(500));
   }
 
   getStudents(): Observable<Student[]> {
