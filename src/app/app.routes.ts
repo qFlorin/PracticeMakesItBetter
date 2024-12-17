@@ -8,6 +8,11 @@ export const routes: Routes = [
       import('./routing/home/home.component').then((c) => c.HomeComponent),
   },
   {
+    path: 'javascript',
+    loadComponent: () =>
+      import('./Javascript/js/js.component').then((c) => c.JsComponent),
+  },
+  {
     path: 'reactive-form',
     loadComponent: () =>
       import('./forms/reactive-forms/reactive-forms.component').then(
@@ -44,6 +49,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./routing/calendar/calendar.component').then(
         (c) => c.CalendarComponent
+      ),
+  },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./tree/dashboard/dashboard.component').then(
+        (c) => c.DashboardComponent
       ),
   },
   {

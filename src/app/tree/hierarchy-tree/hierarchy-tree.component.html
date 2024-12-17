@@ -1,0 +1,39 @@
+<cdk-tree [dataSource]="treeDataSource" [treeControl]="treeControl">
+  <cdk-tree-node
+    *cdkTreeNodeDef="let node"
+    cdkTreeNodePadding
+    [cdkTreeNodePaddingIndent]="16"
+    class="tree-node"
+  >
+    <div class="cursor-pointer" cdkTreeNodeToggle>
+      <div class="flex items-center gap-3 mb-5">
+        <div class="dot" [style.background]="'red'"></div>
+        <p class="node-name font-bold">
+          {{ node.name }}
+        </p>
+      </div>
+    </div>
+  </cdk-tree-node>
+  <cdk-tree-node
+    *cdkTreeNodeDef="let node; when: hasChild"
+    cdkTreeNodePadding
+    [cdkTreeNodePaddingIndent]="16"
+    class="tree-node"
+  >
+    <div class="cursor-pointer" cdkTreeNodeToggle>
+      <div class="flex items-center gap-3 mb-5">
+        <span class="material-symbols-sharp">
+          {{ !treeControl.isExpanded(node) ? "add" : "remove" }}
+        </span>
+        <div class="dot"></div>
+        <p class="node-name font-bold">
+          {{ node.name }}
+        </p>
+      </div>
+    </div>
+
+    <div [class.tree-invisible]="!treeControl.isExpanded(node)">
+      <ng-container cdkTreeNodeOutlet></ng-container>
+    </div>
+  </cdk-tree-node>
+</cdk-tree>

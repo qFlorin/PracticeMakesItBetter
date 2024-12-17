@@ -1,0 +1,31 @@
+<div class="px-24 my-10">
+  <div class="hidden sm:block">
+    <nav class="flex space-x-4" aria-label="Tabs">
+      <a
+        class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800"
+        >Node details</a
+      >
+      <a
+        class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800"
+        >Node table</a
+      >
+      <a
+        class="rounded-md bg-gray-200 px-3 py-2 text-sm font-medium text-gray-800"
+        >Members</a
+      >
+      <a
+        class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800"
+        >Configuration</a
+      >
+    </nav>
+  </div>
+  <div class="mt-5 flex">
+    <div class="w-2/6">
+      <app-hierarchy-tree />
+    </div>
+    <div class="w-4/6">
+      test
+      <router-outlet />
+    </div>
+  </div>
+</div>

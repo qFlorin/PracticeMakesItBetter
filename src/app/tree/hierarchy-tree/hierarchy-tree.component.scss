@@ -1,0 +1,26 @@
+.tree-node{
+  display: block;
+  .tree-node{
+    padding-left: 2.5rem !important;
+    margin-left: 2.5rem;
+  }
+}
+.tree-invisible{
+  display: none;
+}
+.node-name{
+  color: #1E3A8A;
+}
+.tree-node.cdk-nested-tree-leaf {  /* Target expandable leaf nodes */
+  padding-left: 16px;  /* Set desired padding */
+}
+.example-tree-node {
+  display: flex;
+  align-items: center;
+}
+.dot{
+  min-width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: darkgreen;
+}
