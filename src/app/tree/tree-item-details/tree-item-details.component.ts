@@ -11,10 +11,7 @@ import { JsonPipe } from '@angular/common';
   imports: [JsonPipe],
 })
 export class TreeItemDetailsComponent implements OnInit {
-  private readonly treeStore = inject(TreeStore);
-  nodeData: Signal<FlatNode[]> = this.treeStore.filteredTree;
-  loading = this.treeStore.loading;
-  selectedNode = this.treeStore.getById(1);
-  treeCount = this.treeStore.treeCount();
+  readonly treeStore = inject(TreeStore);
+
   ngOnInit() {}
 }

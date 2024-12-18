@@ -17,7 +17,7 @@ type TreeState = {
   tree: FlatNode[];
   loading: boolean;
   error: string | null;
-  selectedNode?: FlatNode;
+  selectedNode: FlatNode | null;
   searchTerm: string;
 };
 
@@ -26,49 +26,68 @@ const initialState: TreeState = {
   loading: false,
   error: null,
   searchTerm: '',
+  selectedNode: null,
 };
 
 export const TreeStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
-  withComputed(({ tree, searchTerm }) => ({
+  withComputed(({ tree, searchTerm, selectedNode }) => ({
     treeCount: computed(() => tree().length),
     filteredTree: computed(() => {
+      const filterTree = (nodes: FlatNode[], term: string): FlatNode[] => {
+        return nodes
+          .map((node) => {
+            if (node.name.toLowerCase().includes(term.toLowerCase())) {
+              return node;
+            }
+            if (node.children) {
+              const filteredChildren = filterTree(node.children, term);
+              if (filteredChildren.length > 0) {
+                return { ...node, children: filteredChildren };
+              }
+            }
+            return null;
+          })
+          .filter((node) => node !== null) as FlatNode[];
+      };
+
       let result = tree();
       if (searchTerm()) {
-        result = result.filter((node) => node.name.includes(searchTerm()));
+        result = filterTree(result, searchTerm());
       }
       return result;
     }),
-    getNodeById: computed(() => {
-      return tree().find((node) => node.id === 1);
+    nodeSelected: computed(() => {
+      if (selectedNode() === null) {
+        return tree()[0];
+      } else {
+        return selectedNode();
+      }
     }),
   })),
   withMethods((store) => ({
-    _setLoading() {
-      patchState(store, { loading: true, error: null });
+    updateSearchTerm(value: string) {
+      patchState(store, { searchTerm: value });
     },
-    _setError(err: string) {
-      patchState(store, { loading: false, error: err, tree: [] });
-    },
-    _setItems(items: FlatNode[]) {
-      patchState(store, { tree: items, loading: false, error: null });
+    selectNode(node: FlatNode) {
+      patchState(store, { selectedNode: node });
     },
   })),
   withMethods((store, treeService = inject(TreeService)) => ({
     loadAllNodes: rxMethod<void>(
       pipe(
-        tap(() => store._setLoading()),
+        tap(() => patchState(store, { loading: true, error: null })),
         switchMap(() => treeService.getTreeDataObservable$()),
         tap({
-          next: (items: FlatNode[]) => store._setItems(items),
-          error: (err: string) => store._setError(err),
+          next: (items: FlatNode[]) =>
+            patchState(store, { tree: items, loading: false, error: null }),
+          error: (err: string) =>
+            patchState(store, { loading: false, error: err, tree: [] }),
         })
       )
     ),
-    updateSearchTerm(value: string) {
-      patchState(store, { searchTerm: value });
-    },
+
     getById: (id: number): FlatNode | undefined => {
       console.log('id', id, store.tree());
       return store.tree().find((node) => node.id === Number(id));

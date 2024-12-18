@@ -1,7 +1,17 @@
 import { CdkTreeModule } from '@angular/cdk/tree';
-import { Component, computed, inject, OnInit, Signal } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  computed,
+  inject,
+  OnInit,
+  Signal,
+} from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import {
+  MatProgressSpinner,
+  MatSpinner,
+} from '@angular/material/progress-spinner';
 import {
   FlatNode,
   hasChild,
@@ -14,12 +24,13 @@ import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
 import { TreeStore } from '../tree.store';
 import { JsonPipe } from '@angular/common';
 import { toObservable } from '@angular/core/rxjs-interop';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-hierarchy-tree',
   templateUrl: './hierarchy-tree.component.html',
   styleUrls: ['./hierarchy-tree.component.scss'],
-  imports: [CdkTreeModule, JsonPipe],
+  imports: [CdkTreeModule, JsonPipe, MatSpinner, FormsModule],
 })
 export class HierarchyTreeComponent implements OnInit {
   hasChild = hasChild;
@@ -36,7 +47,7 @@ export class HierarchyTreeComponent implements OnInit {
   constructor() {}
   treeDataSource = new MatTreeFlatDataSource(treeControl, treeFlattner);
   x = toObservable(this.treeStore.filteredTree);
-
+  private cdr = inject(ChangeDetectorRef);
   ngOnInit() {
     this.x.subscribe((data) => {
       this.treeDataSource.data = data;
@@ -55,14 +66,26 @@ export class HierarchyTreeComponent implements OnInit {
   }
 
   searchNode(event: Event) {
-    this.store.updateSearchTerm((event.target as HTMLInputElement).value);
+    const searchTerm = (event.target as HTMLInputElement).value;
+    if (searchTerm !== '') {
+      this.treeControl.expandAll();
+      this.cdr.detectChanges();
+    }
+    this.store.updateSearchTerm(searchTerm);
   }
 
-  set treeDataSourceData(source: any) {
-    this.treeDataSource.data = this.treeStore.filteredTree();
+  selectNodeInComponent(node: FlatNode) {
+    this.store.selectNode(node);
+  }
+  handleFocus() {
+    console.log('Input focused');
+    this.treeControl.expandAll();
+    this.treeControl.expand(this.treeControl.dataNodes[0]);
+    // Add your logic here
   }
 
-  get treeDataSourceData(): any {
-    return this.treeDataSource.data;
+  clickNode(event: Event) {
+    console.log('Input clicked', event);
+    this.treeControl.expandAll();
   }
 }

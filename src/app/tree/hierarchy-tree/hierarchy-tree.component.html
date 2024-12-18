@@ -12,6 +12,11 @@
   </div>
 </div>
 
+@if (treeStore.loading()) {
+<div class="flex justify-center items-center w-5/6">
+  <mat-spinner diameter="50"></mat-spinner>
+</div>
+} @else {
 <cdk-tree [dataSource]="treeDataSource" [treeControl]="treeControl">
   <cdk-tree-node
     *cdkTreeNodeDef="let node"
@@ -34,8 +39,11 @@
     [cdkTreeNodePaddingIndent]="16"
     class="tree-node"
   >
-    <div class="cursor-pointer" cdkTreeNodeToggle (click)="selectNode(node)">
-      <div class="flex items-center gap-3 mb-5">
+    <div class="cursor-pointer" cdkTreeNodeToggle>
+      <div
+        class="flex items-center gap-3 mb-5"
+        (click)="selectNodeInComponent(node)"
+      >
         <span class="material-symbols-sharp">
           {{ !treeControl.isExpanded(node) ? "add" : "remove" }}
         </span>
@@ -51,3 +59,5 @@
     </div>
   </cdk-tree-node>
 </cdk-tree>
+
+} Selected node: {{ treeStore.nodeSelected() | json }}
