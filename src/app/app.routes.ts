@@ -17,8 +17,8 @@ export const routes: Routes = [
       {
         path: 'details',
         loadComponent: () =>
-          import('./tree/details/details.component').then(
-            (c) => c.DetailsComponent
+          import('./tree/tree-item-details/tree-item-details.component').then(
+            (c) => c.TreeItemDetailsComponent
           ),
       },
       {

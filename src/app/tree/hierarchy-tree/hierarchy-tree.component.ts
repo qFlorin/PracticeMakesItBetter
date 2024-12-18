@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-hierarchy-tree',
   templateUrl: './hierarchy-tree.component.html',
   styleUrls: ['./hierarchy-tree.component.scss'],
-  imports: [CdkTreeModule, JsonPipe, MatSpinner, FormsModule],
+  imports: [CdkTreeModule, FormsModule],
 })
 export class HierarchyTreeComponent implements OnInit {
   hasChild = hasChild;

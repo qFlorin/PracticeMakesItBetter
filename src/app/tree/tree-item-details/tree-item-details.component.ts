@@ -8,7 +8,7 @@ import { JsonPipe } from '@angular/common';
   selector: 'app-tree-item-details',
   templateUrl: './tree-item-details.component.html',
   styleUrls: ['./tree-item-details.component.scss'],
-  imports: [JsonPipe],
+  imports: [],
 })
 export class TreeItemDetailsComponent implements OnInit {
   readonly treeStore = inject(TreeStore);

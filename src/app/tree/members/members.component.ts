@@ -9,7 +9,7 @@ import { Observable, of } from 'rxjs';
   selector: 'app-members',
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.css'],
-  imports: [AsyncPipe, JsonPipe],
+  imports: [AsyncPipe],
 })
 export class MembersComponent implements OnInit {
   treeStore = inject(TreeStore);
