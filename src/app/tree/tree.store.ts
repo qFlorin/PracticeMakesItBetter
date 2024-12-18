@@ -10,8 +10,7 @@ import {
 import { TreeService } from './tree.service';
 import { computed, inject } from '@angular/core';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { exhaustMap, pipe, switchMap, tap } from 'rxjs';
-import { tapResponse } from '@ngrx/operators';
+import { pipe, switchMap, tap } from 'rxjs';
 
 type TreeState = {
   tree: FlatNode[];
@@ -30,7 +29,6 @@ const initialState: TreeState = {
 };
 
 export const TreeStore = signalStore(
-  { providedIn: 'root' },
   withState(initialState),
   withComputed(({ tree, searchTerm, selectedNode }) => ({
     treeCount: computed(() => tree().length),
@@ -53,11 +51,12 @@ export const TreeStore = signalStore(
       };
 
       let result = tree();
-      if (searchTerm()) {
-        result = filterTree(result, searchTerm());
+      if (searchTerm() && searchTerm().length > 2) {
+        return filterTree(tree(), searchTerm());
       }
       return result;
     }),
+
     nodeSelected: computed(() => {
       if (selectedNode() === null) {
         return tree()[0];

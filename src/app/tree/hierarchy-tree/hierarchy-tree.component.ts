@@ -1,11 +1,13 @@
 import { CdkTreeModule } from '@angular/cdk/tree';
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
   computed,
   inject,
   OnInit,
   Signal,
+  ViewChild,
 } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import {
@@ -33,6 +35,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CdkTreeModule, FormsModule],
 })
 export class HierarchyTreeComponent implements OnInit {
+  @ViewChild('tree') tree!: any;
   hasChild = hasChild;
   treeControl = treeControl;
 
@@ -42,6 +45,7 @@ export class HierarchyTreeComponent implements OnInit {
   treeData = TREE_NODE;
   private store = inject(TreeStore);
   searchText = this.store.searchTerm || '';
+
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
   constructor() {}

@@ -11,8 +11,10 @@
     />
   </div>
 </div>
-
-<cdk-tree [dataSource]="treeDataSource" [treeControl]="treeControl">
+@if (searchText().length > 2) {
+{{ treeControl.expandAll() }}
+}
+<cdk-tree [dataSource]="treeDataSource" [treeControl]="treeControl" #tree>
   <cdk-tree-node
     *cdkTreeNodeDef="let node"
     cdkTreeNodePadding
