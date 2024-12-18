@@ -1,0 +1,11 @@
+<p>members works!</p>
+
+<br /><br />
+<p class="font-bold">
+  User {{ treeStore.nodeSelected()?.name }} corresponds to the following
+  members:
+</p>
+@if (members | async; as member) {
+<h2>{{ member.name }}</h2>
+}
+<div></div>

@@ -54,38 +54,12 @@ export class HierarchyTreeComponent implements OnInit {
     });
   }
 
-  selectNode(node: FlatNode) {
-    // Pass the whole node object
-    const navigationExtras: NavigationExtras = {
-      state: {
-        nodeData: node, // Pass the node data here
-      },
-      relativeTo: this.activatedRoute,
-    };
-    this.router.navigate(['./', node.id], navigationExtras);
-  }
-
   searchNode(event: Event) {
     const searchTerm = (event.target as HTMLInputElement).value;
-    if (searchTerm !== '') {
-      this.treeControl.expandAll();
-      this.cdr.detectChanges();
-    }
     this.store.updateSearchTerm(searchTerm);
   }
 
   selectNodeInComponent(node: FlatNode) {
     this.store.selectNode(node);
-  }
-  handleFocus() {
-    console.log('Input focused');
-    this.treeControl.expandAll();
-    this.treeControl.expand(this.treeControl.dataNodes[0]);
-    // Add your logic here
-  }
-
-  clickNode(event: Event) {
-    console.log('Input clicked', event);
-    this.treeControl.expandAll();
   }
 }

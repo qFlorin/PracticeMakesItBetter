@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { FlatNode } from './hierarchy-tree/tree-helpers';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TreeService {
+  private http = inject(HttpClient);
   TREE_NODE: FlatNode[] = [
     {
       id: 1,
@@ -149,5 +151,9 @@ export class TreeService {
       return undefined;
     };
     return findNode(this.TREE_NODE);
+  }
+
+  getUsers$(id: number) {
+    return this.http.get(`https://jsonplaceholder.typicode.com/users/${id}`);
   }
 }

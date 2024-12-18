@@ -3,48 +3,38 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: 'dashboard',
+    path: 'tree-dashboard',
+    redirectTo: 'tree-dashboard/members',
+    pathMatch: 'full',
+  },
+  {
+    path: 'tree-dashboard',
     loadComponent: () =>
       import('./tree/dashboard/dashboard.component').then(
         (c) => c.DashboardComponent
       ),
     children: [
       {
-        path: 'node-details',
+        path: 'details',
         loadComponent: () =>
-          import('./tree/tree-item-details/tree-item-details.component').then(
-            (c) => c.TreeItemDetailsComponent
-          ),
-      },
-      {
-        path: ':nodeId',
-        loadComponent: () =>
-          import('./tree/tree-item-details/tree-item-details.component').then(
-            (c) => c.TreeItemDetailsComponent
-          ),
-      },
-      {
-        path: 'node-table',
-        loadComponent: () =>
-          import('./tree/tree-item-details/tree-item-details.component').then(
-            (c) => c.TreeItemDetailsComponent
+          import('./tree/details/details.component').then(
+            (c) => c.DetailsComponent
           ),
       },
       {
         path: 'members',
         loadComponent: () =>
-          import('./tree/tree-item-details/tree-item-details.component').then(
-            (c) => c.TreeItemDetailsComponent
+          import('./tree/members/members.component').then(
+            (c) => c.MembersComponent
           ),
       },
       {
         path: 'configuration',
         loadComponent: () =>
-          import('./tree/tree-item-details/tree-item-details.component').then(
-            (c) => c.TreeItemDetailsComponent
+          import('./tree/configuration/configuration.component').then(
+            (c) => c.ConfigurationComponent
           ),
       },
-      // Correct route
     ],
   },
   {

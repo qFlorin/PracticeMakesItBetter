@@ -3,22 +3,30 @@
     <nav class="flex space-x-4" aria-label="Tabs">
       <a
         class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800 cursor-pointer"
+        [routerLink]="['details']"
+        routerLinkActive="bg-gray-200"
         >Node details</a
       >
+
       <a
-        class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800 cursor-pointer"
-        >Node table</a
-      >
-      <a
-        class="rounded-md bg-gray-200 px-3 py-2 text-sm font-medium text-gray-800 cursor-pointer"
+        class="rounded-md px-3 py-2 text-sm font-medium text-gray-800 cursor-pointer"
+        [routerLink]="['members']"
+        routerLinkActive="bg-gray-200"
         >Members</a
       >
       <a
         class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800 cursor-pointer"
+        [routerLink]="['configuration']"
+        routerLinkActive="bg-gray-200"
         >Configuration</a
       >
     </nav>
   </div>
+  @if (treeStore.loading()) {
+  <div class="flex justify-center items-center w-5/6 mt-16">
+    <mat-spinner diameter="50"></mat-spinner>
+  </div>
+  } @else {
   <div class="mt-5 flex">
     <div class="w-2/6">
       <app-hierarchy-tree />
@@ -27,4 +35,5 @@
       <router-outlet />
     </div>
   </div>
+  }
 </div>
