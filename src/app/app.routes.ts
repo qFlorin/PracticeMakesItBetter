@@ -3,6 +3,51 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./tree/dashboard/dashboard.component').then(
+        (c) => c.DashboardComponent
+      ),
+    children: [
+      {
+        path: 'node-details',
+        loadComponent: () =>
+          import('./tree/tree-item-details/tree-item-details.component').then(
+            (c) => c.TreeItemDetailsComponent
+          ),
+      },
+      {
+        path: ':nodeId',
+        loadComponent: () =>
+          import('./tree/tree-item-details/tree-item-details.component').then(
+            (c) => c.TreeItemDetailsComponent
+          ),
+      },
+      {
+        path: 'node-table',
+        loadComponent: () =>
+          import('./tree/tree-item-details/tree-item-details.component').then(
+            (c) => c.TreeItemDetailsComponent
+          ),
+      },
+      {
+        path: 'members',
+        loadComponent: () =>
+          import('./tree/tree-item-details/tree-item-details.component').then(
+            (c) => c.TreeItemDetailsComponent
+          ),
+      },
+      {
+        path: 'configuration',
+        loadComponent: () =>
+          import('./tree/tree-item-details/tree-item-details.component').then(
+            (c) => c.TreeItemDetailsComponent
+          ),
+      },
+      // Correct route
+    ],
+  },
+  {
     path: 'home',
     loadComponent: () =>
       import('./routing/home/home.component').then((c) => c.HomeComponent),
@@ -51,13 +96,7 @@ export const routes: Routes = [
         (c) => c.CalendarComponent
       ),
   },
-  {
-    path: 'dashboard',
-    loadComponent: () =>
-      import('./tree/dashboard/dashboard.component').then(
-        (c) => c.DashboardComponent
-      ),
-  },
+
   {
     path: 'team',
     loadComponent: () =>
@@ -109,7 +148,7 @@ export const routes: Routes = [
 ];
 
 /*
-  TODO: Exercices:
+  TODO: Exercises:
   FRAGMENTS:
   - Scrolling activate section, add class to active section
   - Use fragments to navigate down and open url with fragment in new tab (add transition) - scrollIntoView(smooth)
