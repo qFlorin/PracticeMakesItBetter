@@ -55,6 +55,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'components-basics',
+    loadComponent: () =>
+      import('./components-basics/components-basics.component').then(
+        (c) => c.ComponentsBasicsComponent
+      ),
+  },
+  {
     path: 'login',
     loadComponent: () =>
       import('./routing/login/login.component').then((c) => c.LoginComponent),
