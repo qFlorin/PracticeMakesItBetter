@@ -2,6 +2,11 @@
   <div class="hidden sm:block">
     <nav class="flex space-x-4" aria-label="Tabs">
       <a
+        class="rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer bg-blue-950"
+        (click)="toggleTree()"
+        >Show/Hide</a
+      >
+      <a
         class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-800 cursor-pointer"
         [routerLink]="['details']"
         routerLinkActive="bg-gray-200"
@@ -27,11 +32,17 @@
     <mat-spinner diameter="50"></mat-spinner>
   </div>
   } @else {
-  <div class="mt-5 flex">
-    <div class="w-2/6">
+  <div class="mt-5 flex overflow-hidden">
+    <div
+      class="transition-all-test"
+      [class]="isTreeHidden ? 'w-0 opacity-0' : 'w-2/6 opacity-100'"
+    >
       <app-hierarchy-tree />
     </div>
-    <div class="w-4/6">
+    <div
+      class="duration-1000 transition-all"
+      [class]="isTreeHidden ? 'w-full' : 'w-4/6'"
+    >
       <router-outlet />
     </div>
   </div>

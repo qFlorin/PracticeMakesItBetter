@@ -32,30 +32,6 @@ export const TreeStore = signalStore(
   withState(initialState),
   withComputed(({ tree, searchTerm, selectedNode }) => ({
     treeCount: computed(() => tree().length),
-    filteredTree: computed(() => {
-      const filterTree = (nodes: FlatNode[], term: string): FlatNode[] => {
-        return nodes
-          .map((node) => {
-            if (node.name.toLowerCase().includes(term.toLowerCase())) {
-              return node;
-            }
-            if (node.children) {
-              const filteredChildren = filterTree(node.children, term);
-              if (filteredChildren.length > 0) {
-                return { ...node, children: filteredChildren };
-              }
-            }
-            return null;
-          })
-          .filter((node) => node !== null) as FlatNode[];
-      };
-
-      let result = tree();
-      if (searchTerm() && searchTerm().length > 2) {
-        return filterTree(tree(), searchTerm());
-      }
-      return result;
-    }),
 
     nodeSelected: computed(() => {
       if (selectedNode() === null) {

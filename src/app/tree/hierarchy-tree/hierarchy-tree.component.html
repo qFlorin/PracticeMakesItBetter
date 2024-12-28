@@ -1,19 +1,20 @@
 <div class="mb-5 w-5/6">
   <div class="mt-2">
-    <input
-      type="text"
-      name="text"
-      id="text"
-      class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-      placeholder="Search node"
-      [value]="searchText()"
-      (input)="searchNode($event)"
-    />
+    <form>
+      <input
+        type="text"
+        name="text"
+        id="text"
+        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+        placeholder="Search node"
+        [value]="searchText()"
+        [formControl]="search"
+      />
+    </form>
   </div>
 </div>
-@if (searchText().length > 2) {
-{{ treeControl.expandAll() }}
-}
+
+@defer (on timer(500ms)) {
 <cdk-tree [dataSource]="treeDataSource" [treeControl]="treeControl" #tree>
   <cdk-tree-node
     *cdkTreeNodeDef="let node"
@@ -56,3 +57,7 @@
     </div>
   </cdk-tree-node>
 </cdk-tree>
+
+} @placeholder {
+<div class="flex justify-center items-center w-5/6 mt-16">Loading...</div>
+}

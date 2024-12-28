@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { HierarchyTreeComponent } from '../hierarchy-tree/hierarchy-tree.component';
 import { TreeStore } from '../tree.store';
 import { MatSpinner } from '@angular/material/progress-spinner';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,6 +23,10 @@ import { MatSpinner } from '@angular/material/progress-spinner';
 export class DashboardComponent implements OnInit {
   readonly treeStore = inject(TreeStore);
   constructor() {}
+  isTreeHidden = false;
 
+  toggleTree() {
+    this.isTreeHidden = !this.isTreeHidden;
+  }
   ngOnInit() {}
 }
