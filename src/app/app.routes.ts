@@ -62,6 +62,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'users',
+    loadComponent: () =>
+      import('./users-crud/users-crud.component').then(
+        (c) => c.UsersCrudComponent
+      ),
+  },
+  {
     path: 'login',
     loadComponent: () =>
       import('./routing/login/login.component').then((c) => c.LoginComponent),
