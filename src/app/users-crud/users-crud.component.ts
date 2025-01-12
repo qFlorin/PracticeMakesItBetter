@@ -13,9 +13,21 @@ export class UsersCrudComponent implements OnInit {
   users = this.usersService.getUsers();
   constructor() {}
 
-  ngOnInit() {
-    this.usersService.getUsers().subscribe((users) => {
-      console.log(users);
-    });
+  ngOnInit() {}
+
+  addUser() {
+    this.usersService
+      .addUser({
+        id: Math.random().toString(36).substr(2, 9),
+        name: 'David Williams',
+        email: 'david.williams@example.com',
+        role: 'user',
+        status: 'active',
+        title: 'Mr.',
+        image: `https://picsum.photos/200?random=${Math.random()}`,
+      })
+      .subscribe(() => {
+        this.users = this.usersService.getUsers();
+      });
   }
 }
