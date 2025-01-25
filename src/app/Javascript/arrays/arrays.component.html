@@ -1,0 +1,13 @@
+<div class="">
+  <h1 class="text-3xl font-bold mb-3 arrays">Arrays</h1>
+  @for (arr of arrayMethods; track arr.id) {
+  <div class="arrays">
+    <h2>{{ arr.name }}</h2>
+    <ul>
+      @for (method of arr.descriptions; track method) {
+      <li>{{ method }}</li>
+      }
+    </ul>
+  </div>
+  }
+</div>
