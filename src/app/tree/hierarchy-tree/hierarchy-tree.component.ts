@@ -89,6 +89,7 @@ export class HierarchyTreeComponent implements OnInit {
   x = toObservable(this.treeStore.tree);
   ngOnInit() {
     this.treeDataSource.data = this.filteredTree();
+    this.expandNode();
     this.search.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
       console.log('value', value);
       this.searchText.set(value || '');
@@ -114,5 +115,9 @@ export class HierarchyTreeComponent implements OnInit {
   // }
   selectNodeInComponent(node: FlatNode) {
     this.store.selectNode(node);
+  }
+
+  expandNode() {
+    this.treeControl.expand(this.treeControl.dataNodes[0]);
   }
 }

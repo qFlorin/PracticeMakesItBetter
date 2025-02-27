@@ -1,4 +1,19 @@
 <div class="px-24 my-10">
+  <div class="container flex">
+    @if (isTreeHidden) {
+    <div
+      [@sidebarAnimation]="sidebarState"
+      class="w-1/4 bg-gray-200 p-4"
+      [@.disabled]="!isTreeHidden"
+    >
+      Sidebar
+    </div>
+    }
+    <div [@contentAnimation]="contentState" class="w-3/4 bg-gray-100 p-4">
+      Content
+    </div>
+  </div>
+
   <div class="hidden sm:block">
     <nav class="flex space-x-4" aria-label="Tabs">
       <a
@@ -47,4 +62,17 @@
     </div>
   </div>
   }
+</div>
+<div class="mt-8 relative" #container style="position: relative">
+  <div #box1 class="box h-48 bg-blue-500 p-4 rounded-md text-white">Box 1</div>
+  <div #box2 class="box h-32 bg-green-500 p-4 rounded-md text-white">Box 2</div>
+  <div #box3 class="box h-24 bg-orange-500 p-4 rounded-md text-white">
+    Box 3
+  </div>
+  <div #box4 class="box h-28 bg-purple-500 p-4 rounded-md text-white">
+    Box 4
+  </div>
+  <div #box5 class="box h-40 bg-purple-500 p-4 rounded-md text-white">
+    Box 5
+  </div>
 </div>

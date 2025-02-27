@@ -3,3 +3,48 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
 }
+.bento-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
+}
+.box {
+  position: absolute; /* Important for JavaScript positioning */
+  width: calc(50% - 0.5rem); /* Each box takes roughly half the container width minus half the gap */
+  margin-bottom: 1rem; /* Bottom margin for vertical gap */
+}
+
+.mt-8 { /* Keep margin-top from Tailwind if you want it */
+  margin-top: 2rem;
+}
+
+.rounded-md { /* Keep rounded corners from Tailwind */
+  border-radius: 0.375rem;
+}
+
+.p-4 { /* Keep padding from Tailwind */
+  padding: 1rem;
+}
+
+.text-white { /* Keep text color from Tailwind */
+  color: #fff;
+}
+
+.bg-blue-500 { /* Keep background colors from Tailwind */
+  background-color: #3b82f6;
+}
+
+.bg-green-500 {
+  background-color: #16a34a;
+}
+
+.bg-orange-500 {
+  background-color: #ea580c;
+}
+
+.bg-purple-500 {
+  background-color: #8b5cf6;
+}
+
+.boxes{
+  display: grid;
+  grid-template-columns: 2;
+}
