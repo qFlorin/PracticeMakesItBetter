@@ -39,6 +39,7 @@ import {
         style({
           opacity: 1,
           transform: 'translateX(0)',
+          display: 'block',
         })
       ),
       state(
@@ -46,7 +47,7 @@ import {
         style({
           opacity: 0,
           transform: 'translateX(-100%)',
-          display: 'none', // Important to remove from layout
+          display: 'none',
         })
       ),
       transition('visible => hidden', animate('300ms ease-out')),
@@ -54,19 +55,19 @@ import {
     ]),
     trigger('contentAnimation', [
       state(
-        'sidebarVisible',
+        'visible',
         style({
           'margin-left': '25%',
         })
       ),
       state(
-        'sidebarHidden',
+        'hidden',
         style({
           'margin-left': '0',
         })
       ),
-      transition('sidebarVisible => sidebarHidden', animate('300ms ease-out')),
-      transition('sidebarHidden => sidebarVisible', animate('300ms ease-in')),
+      transition('visible => hidden', animate('300ms ease-out')),
+      transition('hidden => visible', animate('300ms ease-in')),
     ]),
   ],
 })

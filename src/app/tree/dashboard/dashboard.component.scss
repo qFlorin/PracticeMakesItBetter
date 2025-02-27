@@ -1,8 +1,4 @@
-.transition-all-test {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 500ms;
-}
+
 .bento-grid {
   grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
 }
@@ -47,4 +43,71 @@
 .boxes{
   display: grid;
   grid-template-columns: 2;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.w-0 {
+  width: 0;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.w-2\/6 {
+  width: 33.333%;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
+.transition-all {
+  transition-property: all;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-4\/6 {
+  width: 66.667%;
+}
+
+.big-container{
+  display: flex;
+  overflow: hidden;
+
+}
+.sidebar{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+.isHidden{
+  width: 0;
+  opacity: 0;
+}
+.isNotHidden{
+  width: 33.3%;
+  opacity: 1;
+
+}
+.content{
+
 }

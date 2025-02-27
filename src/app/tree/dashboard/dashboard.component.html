@@ -1,19 +1,4 @@
 <div class="px-24 my-10">
-  <div class="container flex">
-    @if (isTreeHidden) {
-    <div
-      [@sidebarAnimation]="sidebarState"
-      class="w-1/4 bg-gray-200 p-4"
-      [@.disabled]="!isTreeHidden"
-    >
-      Sidebar
-    </div>
-    }
-    <div [@contentAnimation]="contentState" class="w-3/4 bg-gray-100 p-4">
-      Content
-    </div>
-  </div>
-
   <div class="hidden sm:block">
     <nav class="flex space-x-4" aria-label="Tabs">
       <a
@@ -47,15 +32,12 @@
     <mat-spinner diameter="50"></mat-spinner>
   </div>
   } @else {
-  <div class="mt-5 flex overflow-hidden">
-    <div
-      class="transition-all-test"
-      [class]="isTreeHidden ? 'w-0 opacity-0' : 'w-2/6 opacity-100'"
-    >
+  <div class="mt-5 big-container">
+    <div class="sidebar" [class]="isTreeHidden ? 'isHidden' : 'isNotHidden'">
       <app-hierarchy-tree />
     </div>
     <div
-      class="duration-1000 transition-all"
+      class="content duration-1000 transition-all"
       [class]="isTreeHidden ? 'w-full' : 'w-4/6'"
     >
       <router-outlet />
@@ -76,3 +58,34 @@
     Box 5
   </div>
 </div>
+
+<div class="container flex">
+  @if (isTreeHidden) {
+  <div
+    [@sidebarAnimation]="sidebarState"
+    class="w-1/4 bg-gray-200 p-4"
+    [@.disabled]="!isTreeHidden"
+  >
+    Sidebar
+  </div>
+  }
+  <div [@contentAnimation]="contentState" class="w-3/4 bg-gray-100 p-4">
+    Content
+  </div>
+</div>
+
+<div class="container flex">
+  <div
+    [@sidebarAnimation]="isTreeHidden ? 'hidden' : 'visible'"
+    class="w-1/4 bg-gray-200 p-4"
+  >
+    Sidebar
+  </div>
+  <div
+    [@contentAnimation]="isTreeHidden ? 'hidden' : 'visible'"
+    class="flex-grow bg-gray-100 p-4"
+  >
+    Content
+  </div>
+</div>
+<button (click)="toggleTree()">Toggle Sidebar</button>
