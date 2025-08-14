@@ -48,6 +48,11 @@ export const routes: Routes = [
       import('./Javascript/js/js.component').then((c) => c.JsComponent),
   },
   {
+    path: 'licence',
+    loadComponent: () =>
+      import('./licence/licence.component').then((c) => c.LicenceComponent),
+  },
+  {
     path: 'reactive-form',
     loadComponent: () =>
       import('./forms/reactive-forms/reactive-forms.component').then(

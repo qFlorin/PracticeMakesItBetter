@@ -1,40 +1,60 @@
-// @ts-nocheck
-import { Component, inject, OnInit } from '@angular/core';
-import { JsService } from './../js/js.service';
-
+import { Component, OnInit } from '@angular/core';
+4;
 @Component({
   selector: 'app-arrays',
   templateUrl: './arrays.component.html',
   styleUrls: ['./arrays.component.css'],
 })
 export class ArraysComponent implements OnInit {
-  arrayMethods = inject(JsService).arrayMethods;
-  personArr = [
-    { name: 'John Doe', age: 30 },
-    { name: 'Jane Smith', age: 25, hobbies: ['reading', 'traveling'] },
-    {
-      name: 'Alice Johnson',
-      age: 28,
-      address: { city: 'New York', zip: '10001' },
-    },
-    { name: 'Bob Brown', age: 35, children: ['Charlie', 'David'] },
-    {
-      name: 'Carol White',
-      age: 32,
-      contact: { email: 'carol@example.com', phone: '123-456-7890' },
-    },
-  ];
-  constructor() {}
-
   ngOnInit() {
-    console.log(this.personArr.myAt(3));
+    this.isValidIP('1.2.3.4\n');
+  }
+
+  isValidIP(str: string) {
+    // Check for any whitespace or newline in the input
+    if (
+      !str ||
+      str.trim() !== str ||
+      str.includes('\n') ||
+      str.includes('\r')
+    ) {
+      return false;
+    }
+    const parts = str.split('.');
+    if (parts.length !== 4) return false;
+    for (const part of parts) {
+      // Check if part is empty, not a number, has leading zeros, or out of range
+      if (
+        !/^\d+$/.test(part) ||
+        (part.length > 1 && part.startsWith('0')) ||
+        Number(part) < 0 ||
+        Number(part) > 255
+      ) {
+        return false;
+      }
+    }
+    return true;
   }
 }
 
-Array.prototype.myAt = function (x) {
-  return this[x];
-};
-
-Array.prototype.myConcat = function (ar1, ar2) {
-  return [...ar1, ...ar2];
-};
+// describe('Sample tests', () => {
+//   it('Examples', () => {
+//     assert.strictEqual(isValidIP('0.0.0.0'), true);
+//     assert.strictEqual(isValidIP('12.255.56.1'), true);
+//     assert.strictEqual(isValidIP('137.255.156.100'), true);
+//     assert.strictEqual(isValidIP(''), false);
+//     assert.strictEqual(isValidIP('abc.def.ghi.jkl'), false);
+//     assert.strictEqual(isValidIP('123.456.789.0'), false);
+//     assert.strictEqual(isValidIP('12.34.56'), false);
+//     assert.strictEqual(isValidIP('01.02.03.04'), false);
+//     assert.strictEqual(isValidIP('256.1.2.3'), false);
+//     assert.strictEqual(isValidIP('1.2.3.4.5'), false);
+//     assert.strictEqual(isValidIP('123,45,67,89'), false);
+//     assert.strictEqual(isValidIP('1e0.1e1.1e2.2e2'), false);
+//     assert.strictEqual(isValidIP(' 1.2.3.4'), false);
+//     assert.strictEqual(isValidIP('1.2.3.4 '), false);
+//     assert.strictEqual(isValidIP('12.34.56.-7'), false);
+//     assert.strictEqual(isValidIP('1.2.3.4\n'), false);
+//     assert.strictEqual(isValidIP('\n1.2.3.4'), false);
+//   });
+// });

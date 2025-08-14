@@ -6,6 +6,6 @@ import { ReactiveFormsComponent } from './forms/reactive-forms/reactive-forms.co
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {}
