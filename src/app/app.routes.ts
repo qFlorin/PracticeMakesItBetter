@@ -47,10 +47,17 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./Javascript/js/js.component').then((c) => c.JsComponent),
   },
+  // {
+  //   path: 'licence',
+  //   loadComponent: () =>
+  //     import('./licence/licence.component').then((c) => c.LicenceComponent),
+  // },
   {
-    path: 'licence',
+    path: 'daily',
     loadComponent: () =>
-      import('./licence/licence.component').then((c) => c.LicenceComponent),
+      import('./daily-stuff/daily-stuff.component').then(
+        (c) => c.DailyStuffComponent
+      ),
   },
   {
     path: 'reactive-form',
@@ -180,3 +187,22 @@ export const routes: Routes = [
   Learn:
  - Exact true to match only the exact path
 */
+
+/*
+   Bună ziua, sunt interesat de o programare pentru intervenția SMILE Pro și aș vrea să obțin mai multe informații,
+   daca ma puteti ajuta cu pasii necesari.
+
+   Ma intereseaza:
+    - Trebuie sa vin cu cineva anume sa ma ajute sau pot pleca singur dupa operatie ? (si dupa cat timp)
+    - Dupa consultatie la cat timp sunt programat pentru interventie ?
+    - Cand ar fi prima data libera pentru consultatie ?
+    - Care sunt pasii dupa interventie? Cate sedinte de verificare vor fi sa vedem daca s-a vindecat si este totul in regula ?
+
+ */
+
+/*
+      - pachet investigatii
+      - 18 septembrie, ora 9:45. (200 lei consult), investigatiile in aceeasi zi. (Popa loredana).
+      - str intre laculri, de pe maps.
+      - buletinul, ochelarii.
+    */
